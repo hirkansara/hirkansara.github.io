@@ -227,7 +227,7 @@
             </select>
           </label>
           <button class="button button-gold submit-button" type="submit">آماده‌سازی و ارسال درخواست <span>←</span></button>
-          <p class="form-privacy">متن درخواست آماده و در صورت امکان کپی می‌شود؛ سپس راه ارتباطی انتخاب‌شده باز می‌شود. در پیام‌رسان‌ها ممکن است لازم باشد متن را در گفت‌وگو جای‌گذاری و خودتان ارسال کنید.</p>
+          <p class="form-privacy">با یک بار زدن دکمه، متن درخواست همراه برنامه انتخاب‌شده باز یا برای اشتراک‌گذاری آماده می‌شود. در اینستاگرام به دلیل محدودیت خود برنامه، متن کپی می‌شود و باید در دایرکت جای‌گذاری شود.</p>
           <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -277,48 +277,98 @@
     (function () {
       const form = document.getElementById('inquiry-form');
       if (!form) return;
+      const status = document.getElementById('form-status');
+      const button = form.querySelector('button[type="submit"]');
+      const messageFor = (data) => [
+        'درخواست از وب‌سایت هیرکان سرا',
+        'نام: ' + (data.get('name') || ''),
+        'شماره تماس: ' + (data.get('phone') || ''),
+        'نوع درخواست: ' + (data.get('type') || ''),
+        'بودجه: ' + (data.get('budget') || ''),
+        'توضیحات: ' + (data.get('details') || 'ذکر نشده')
+      ].join('\n');
+
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
         if (!form.reportValidity()) return;
         const data = new FormData(form);
-        const message = [
-          'درخواست از وب‌سایت هیرکان سرا',
-          'نام: ' + (data.get('name') || ''),
-          'شماره تماس: ' + (data.get('phone') || ''),
-          'نوع درخواست: ' + (data.get('type') || ''),
-          'بودجه: ' + (data.get('budget') || ''),
-          'توضیحات: ' + (data.get('details') || 'ذکر نشده')
-        ].join('\\n');
+        const message = messageFor(data);
         const channel = data.get('channel');
+        const encoded = encodeURIComponent(message);
         const targets = {
-          whatsapp: 'https://wa.me/989119996780?text=' + encodeURIComponent(message),
-          telegram: 'https://t.me/+989119996780',
-          eitaa: 'https://eitaa.com/09119996780',
-          bale: 'https://ble.ir/09119996780',
-          rubika: 'https://rubika.ir/09119996780',
+          whatsapp: 'https://wa.me/989119996780?text=' + encoded,
+          // Telegram's share link carries the text into Telegram; user chooses the recipient.
+          telegram: 'https://t.me/share/url?url=&text=' + encoded,
+          eitaa: 'https://eitaa.com/share/url?url=&text=' + encoded,
+          bale: 'https://ble.ir/share/url?url=&text=' + encoded,
+          rubika: 'https://rubika.ir/share?text=' + encoded,
           instagram: 'https://ig.me/m/hirkansararealestate',
-          email: 'mailto:hirkansararealestate@gmail.com?subject=' + encodeURIComponent('درخواست از وب‌سایت هیرکان سرا') + '&body=' + encodeURIComponent(message)
+          email: 'mailto:hirkansararealestate@gmail.com?subject=' + encodeURIComponent('درخواست از وب‌سایت هیرکان سرا') + '&body=' + encoded
         };
-        const status = document.getElementById('form-status');
+
         if (channel === 'email') {
+          status.textContent = 'ایمیل با متن درخواست آماده می‌شود؛ فقط دکمه ارسال را در برنامه ایمیل بزنید.';
           window.location.href = targets.email;
-          status.textContent = 'ایمیل با متن درخواست آماده شد؛ لطفاً آن را بررسی و ارسال کنید.';
           return;
         }
-        let copied = false;
-        try {
-          await navigator.clipboard.writeText(message);
-          copied = true;
-        } catch (_) {}
-        if (channel === 'whatsapp') {
-          window.open(targets[channel], '_blank', 'noopener');
-        } else {
-          window.open(targets[channel], '_blank', 'noopener');
+
+        // Open synchronously from the click to avoid mobile popup blockers.
+        const opened = window.open(targets[channel], '_blank');
+        if (opened) opened.opener = null;
+
+        if (channel === 'instagram') {
+          // Instagram does not support reliably pre-filling a DM from a website.
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(message);
+              status.textContent = 'دایرکت اینستاگرام باز شد و متن درخواست کپی شد؛ فقط داخل کادر پیام نگه دارید و «جای‌گذاری» و سپس «ارسال» را بزنید.';
+            } else {
+              status.textContent = 'دایرکت اینستاگرام باز شد. قابلیت جای‌گذاری خودکار در اینستاگرام وجود ندارد؛ متن درخواست در ادامه نمایش داده می‌شود تا کپی کنید.';
+              showMessageFallback(message);
+            }
+          } catch (_) {
+            status.textContent = 'دایرکت اینستاگرام باز شد. متن درخواست را از کادر زیر کپی کنید و در پیام جای‌گذاری کنید.';
+            showMessageFallback(message);
+          }
+          return;
         }
-        status.textContent = channel === 'instagram'
-          ? (copied ? 'پیام درخواست کپی شد و گفت‌وگوی اینستاگرام باز شد؛ متن را در پیام دایرکت جای‌گذاری و ارسال کنید.' : 'گفت‌وگوی اینستاگرام باز شد؛ متن درخواست را کپی کرده و در پیام دایرکت جای‌گذاری و ارسال کنید.')
-          : (copied ? 'متن درخواست کپی شد و راه ارتباطی انتخاب‌شده باز شد. متن را در گفت‌وگو جای‌گذاری و ارسال کنید.' : 'راه ارتباطی انتخاب‌شده باز شد. متن درخواست را در گفت‌وگو وارد و ارسال کنید.');
+
+        if (channel === 'whatsapp' || channel === 'telegram') {
+          status.textContent = 'متن درخواست همراه لینک باز شد. در صورت نمایش صفحه انتخاب مخاطب، مخاطب را انتخاب کنید و ارسال را بزنید.';
+          return;
+        }
+
+        // For other messengers, URL prefill schemes vary by app/device. Use native share sheet
+        // so the message itself is passed to the selected app, instead of copying silently.
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: 'درخواست هیرکان سرا', text: message });
+            status.textContent = 'درخواست برای اشتراک‌گذاری آماده شد؛ برنامه مقصد را انتخاب و ارسال کنید.';
+          } catch (err) {
+            if (err && err.name === 'AbortError') status.textContent = 'ارسال لغو شد. برای ارسال دوباره، همین دکمه را بزنید.';
+            else { status.textContent = 'اشتراک‌گذاری خودکار در این دستگاه پشتیبانی نشد؛ متن درخواست در کادر زیر آماده است.'; showMessageFallback(message); }
+          }
+        } else {
+          status.textContent = 'این دستگاه اشتراک‌گذاری خودکار را پشتیبانی نمی‌کند؛ متن درخواست را از کادر زیر کپی کنید.';
+          showMessageFallback(message);
+        }
       });
+
+      function showMessageFallback(message) {
+        let box = document.getElementById('inquiry-message-fallback');
+        if (!box) {
+          box = document.createElement('textarea');
+          box.id = 'inquiry-message-fallback';
+          box.readOnly = true;
+          box.rows = 6;
+          box.setAttribute('aria-label', 'متن آماده درخواست برای کپی');
+          box.style.cssText = 'display:block;width:100%;margin-top:12px;padding:12px;border-radius:8px;direction:rtl;';
+          status.insertAdjacentElement('afterend', box);
+        }
+        box.value = message;
+        box.focus();
+        box.select();
+      }
     })();
   </script>
   <!-- GitHub Pages deployment trigger -->
