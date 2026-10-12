@@ -195,7 +195,7 @@
           <div class="contact-detail"><span>➤</span><div><small>کانال تلگرام · فایل املاک</small><a href="https://t.me/hirkansara" target="_blank" rel="noopener">مشاهده کانال فایل‌های املاک</a></div></div>
           <div class="messenger-links" aria-label="راه‌های پیام‌رسانی">
             <a href="https://wa.me/989119996780" target="_blank" rel="noopener" aria-label="پیام در واتساپ" title="واتساپ"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l6-1.6A11.8 11.8 0 0 0 20.5 3.5ZM12 21a9 9 0 0 1-4.6-1.3l-.3-.2-3.5.9.9-3.4-.2-.4A9 9 0 1 1 12 21Zm5-6.7c-.3-.2-1.7-.8-2-.9s-.5-.2-.7.2-.8.9-1 1.1-.4.2-.7.1a7.4 7.4 0 0 1-2.2-1.4 8.3 8.3 0 0 1-1.5-1.9c-.2-.3 0-.5.1-.6l.5-.6.2-.5c.1-.2 0-.4 0-.6l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4a11 11 0 0 0 4.3 3.8c.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4s-.2-.3-.5-.4Z"/></svg></a>
-            <a href="https://t.me/+989111996780" target="_blank" rel="noopener" aria-label="ارسال پیام در تلگرام" title="پیام در تلگرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 3.2 18.5 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6 13.5 1.1 12c-1.1-.3-1.1-1.1.2-1.6L20.4 3c.9-.3 1.7.2 1.4.2Z"/></svg></a>
+            <a href="https://t.me/hirkansara911" target="_blank" rel="noopener" aria-label="ارسال پیام در تلگرام" title="پیام در تلگرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 3.2 18.5 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6 13.5 1.1 12c-1.1-.3-1.1-1.1.2-1.6L20.4 3c.9-.3 1.7.2 1.4.2Z"/></svg></a>
             <a href="https://eitaa.com/09119996780" target="_blank" rel="noopener" aria-label="پیام در ایتا" title="ایتا"><span>ایتا</span></a>
             <a href="https://ble.ir/09119996780" target="_blank" rel="noopener" aria-label="پیام در بله" title="بله"><span>بله</span></a>
             <a href="https://rubika.ir/09119996780" target="_blank" rel="noopener" aria-label="پیام در روبیکا" title="روبیکا"><span>روبیکا</span></a>
@@ -227,7 +227,7 @@
             </select>
           </label>
           <button class="button button-gold submit-button" type="submit">آماده‌سازی و ارسال درخواست <span>←</span></button>
-          <p class="form-privacy">با یک بار زدن دکمه، متن درخواست همراه برنامه انتخاب‌شده باز یا برای اشتراک‌گذاری آماده می‌شود. در اینستاگرام به دلیل محدودیت خود برنامه، متن کپی می‌شود و باید در دایرکت جای‌گذاری شود.</p>
+          <p class="form-privacy">با زدن دکمه، حساب مستقیم املاک در برنامه انتخاب‌شده باز می‌شود؛ در برنامه‌هایی که پیش‌نویس پیام مستقیم را پشتیبانی نمی‌کنند، متن درخواست کپی می‌شود تا در کادر پیام جای‌گذاری و ارسال کنید.</p>
           <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -297,59 +297,42 @@
         const encoded = encodeURIComponent(message);
         const targets = {
           whatsapp: 'https://wa.me/989119996780?text=' + encoded,
-          // Telegram's share link carries the text into Telegram; user chooses the recipient.
-          telegram: 'https://t.me/share/url?url=&text=' + encoded,
-          eitaa: 'https://eitaa.com/share/url?url=&text=' + encoded,
-          bale: 'https://ble.ir/share/url?url=&text=' + encoded,
-          rubika: 'https://rubika.ir/share?text=' + encoded,
+          telegram: 'https://t.me/hirkansara911',
+          eitaa: 'https://eitaa.com/09119996780',
+          bale: 'https://ble.ir/09119996780',
+          rubika: 'https://rubika.ir/09119996780',
           instagram: 'https://ig.me/m/hirkansararealestate',
           email: 'mailto:hirkansararealestate@gmail.com?subject=' + encodeURIComponent('درخواست از وب‌سایت هیرکان سرا') + '&body=' + encoded
         };
 
         if (channel === 'email') {
-          status.textContent = 'ایمیل با متن درخواست آماده می‌شود؛ فقط دکمه ارسال را در برنامه ایمیل بزنید.';
+          status.textContent = 'ایمیل با متن درخواست آماده می‌شود؛ در برنامه ایمیل فقط «ارسال» را بزنید.';
           window.location.href = targets.email;
           return;
         }
 
-        // Open synchronously from the click to avoid mobile popup blockers.
+        // Open the direct business conversation/profile, not a generic share page.
         const opened = window.open(targets[channel], '_blank');
         if (opened) opened.opener = null;
 
-        if (channel === 'instagram') {
-          // Instagram does not support reliably pre-filling a DM from a website.
-          try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              await navigator.clipboard.writeText(message);
-              status.textContent = 'دایرکت اینستاگرام باز شد و متن درخواست کپی شد؛ فقط داخل کادر پیام نگه دارید و «جای‌گذاری» و سپس «ارسال» را بزنید.';
-            } else {
-              status.textContent = 'دایرکت اینستاگرام باز شد. قابلیت جای‌گذاری خودکار در اینستاگرام وجود ندارد؛ متن درخواست در ادامه نمایش داده می‌شود تا کپی کنید.';
-              showMessageFallback(message);
-            }
-          } catch (_) {
-            status.textContent = 'دایرکت اینستاگرام باز شد. متن درخواست را از کادر زیر کپی کنید و در پیام جای‌گذاری کنید.';
+        if (channel === 'whatsapp') {
+          status.textContent = 'گفت‌وگوی واتساپ با متن آماده باز می‌شود؛ بررسی کنید و «ارسال» را بزنید.';
+          return;
+        }
+
+        // Telegram, Eitaa, Bale, Rubika and Instagram do not consistently allow
+        // a website to prefill a message to a specific account. Copy the message
+        // while opening the direct account, then the user only needs to paste/send.
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(message);
+            status.textContent = 'صفحه مستقیم حساب املاک باز شد و متن درخواست کپی شد؛ داخل کادر پیام «جای‌گذاری» و سپس «ارسال» را بزنید.';
+          } else {
+            status.textContent = 'صفحه مستقیم حساب املاک باز شد؛ متن درخواست را از کادر زیر کپی کنید و در پیام جای‌گذاری کنید.';
             showMessageFallback(message);
           }
-          return;
-        }
-
-        if (channel === 'whatsapp' || channel === 'telegram') {
-          status.textContent = 'متن درخواست همراه لینک باز شد. در صورت نمایش صفحه انتخاب مخاطب، مخاطب را انتخاب کنید و ارسال را بزنید.';
-          return;
-        }
-
-        // For other messengers, URL prefill schemes vary by app/device. Use native share sheet
-        // so the message itself is passed to the selected app, instead of copying silently.
-        if (navigator.share) {
-          try {
-            await navigator.share({ title: 'درخواست هیرکان سرا', text: message });
-            status.textContent = 'درخواست برای اشتراک‌گذاری آماده شد؛ برنامه مقصد را انتخاب و ارسال کنید.';
-          } catch (err) {
-            if (err && err.name === 'AbortError') status.textContent = 'ارسال لغو شد. برای ارسال دوباره، همین دکمه را بزنید.';
-            else { status.textContent = 'اشتراک‌گذاری خودکار در این دستگاه پشتیبانی نشد؛ متن درخواست در کادر زیر آماده است.'; showMessageFallback(message); }
-          }
-        } else {
-          status.textContent = 'این دستگاه اشتراک‌گذاری خودکار را پشتیبانی نمی‌کند؛ متن درخواست را از کادر زیر کپی کنید.';
+        } catch (_) {
+          status.textContent = 'صفحه مستقیم حساب املاک باز شد؛ متن درخواست را از کادر زیر کپی کنید و در پیام جای‌گذاری کنید.';
           showMessageFallback(message);
         }
       });
