@@ -33,10 +33,12 @@
   <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
   <div class="topbar">
     <div class="container topbar-inner">
-      <span>همراه مطمئن شما در مسیر انتخاب ملک</span>
-      <div class="topbar-links">
-        <a href="tel:09119996780" aria-label="تماس با هیرکان سرا"><bdi dir="ltr" class="phone-number">09119996780</bdi></a>
-        <a href="https://www.instagram.com/hirkansararealestate/" target="_blank" rel="noopener">اینستاگرام ما ↗</a>
+      <div class="topbar-contacts" aria-label="تماس با مشاوران">
+        <a class="topbar-person" href="tel:09119996780"><strong>شهروز نباتی</strong><bdi dir="ltr" class="phone-number">09119996780</bdi></a>
+        <a class="topbar-instagram" href="https://www.instagram.com/hirkansararealestate/" target="_blank" rel="noopener" aria-label="صفحه اینستاگرام هیرکان سرا" title="اینستاگرام هیرکان سرا">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.6" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a class="topbar-person" href="tel:09111434330"><strong>پویا پوریونس</strong><bdi dir="ltr" class="phone-number">09111434330</bdi></a>
       </div>
     </div>
   </div>
@@ -80,8 +82,8 @@
     <section class="quick-contact" aria-label="راه‌های ارتباطی">
       <div class="container quick-grid">
         <div class="quick-intro"><span class="small-kicker">قدم اول</span><strong>ملک مناسب‌تان را<br>با هم پیدا کنیم.</strong></div>
-        <a class="quick-item" href="tel:09119996780"><span class="quick-icon">↗</span><span><small>تماس مستقیم</small><strong><bdi dir="ltr" class="phone-number">09119996780</bdi></strong></span></a>
-        <a class="quick-item" href="https://wa.me/989119996780" target="_blank" rel="noopener"><span class="quick-icon">◌</span><span><small>پاسخ‌گویی در واتساپ</small><strong>ارسال پیام به مشاور</strong></span></a>
+        <a class="quick-item" href="tel:09119996780"><span class="quick-icon">☎</span><span><small>تماس مستقیم · شهروز نباتی</small><strong><bdi dir="ltr" class="phone-number">09119996780</bdi></strong></span></a>
+        <a class="quick-item" href="tel:09111434330"><span class="quick-icon">☎</span><span><small>تماس مستقیم · پویا پوریونس</small><strong><bdi dir="ltr" class="phone-number">09111434330</bdi></strong></span></a>
         <a class="quick-item" href="#contact"><span class="quick-icon">⌖</span><span><small>مراجعه حضوری</small><strong>لنگرود، نبش میدان املاکی</strong></span></a>
       </div>
     </section>
@@ -242,6 +244,21 @@
   <script src="script.js"></script>
   <style>
     .phone-number { direction:ltr; unicode-bidi:isolate; display:inline-block; white-space:nowrap; }
+    .topbar-inner { justify-content:center; }
+    .topbar-contacts { width:100%; display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; justify-items:center; gap:18px; }
+    .topbar-person { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; text-decoration:none; white-space:nowrap; }
+    .topbar-person strong { font-weight:700; }
+    .topbar-instagram { display:flex; align-items:center; justify-content:center; width:34px; height:34px; color:inherit; }
+    .topbar-instagram svg { display:block; width:25px; height:25px; }
+    .quick-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    @media(max-width:760px) {
+      .topbar-contacts { gap:8px; }
+      .topbar-person { flex-direction:column; gap:3px; font-size:.82rem; white-space:normal; }
+      .topbar-instagram { width:28px; height:28px; }
+      .topbar-instagram svg { width:23px; height:23px; }
+      .quick-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media(max-width:420px) { .topbar-contacts { gap:5px; } .topbar-person { font-size:.73rem; } .phone-number { font-size:.95em; } }
     .advisors-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
     .advisor-card { overflow:hidden; border:1px solid rgba(18,56,47,.14); border-radius:16px; background:#fff; }
     .advisor-photo-placeholder { min-height:220px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#e7eee9,#f6f1e5); color:#52675e; font-size:1.1rem; }
