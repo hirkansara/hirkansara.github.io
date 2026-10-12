@@ -215,19 +215,8 @@
             <label>بودجه تقریبی<select name="budget"><option>ترجیح می‌دهم در تماس بگویم</option><option>کمتر از ۲ میلیارد تومان</option><option>۲ تا ۵ میلیارد تومان</option><option>۵ تا ۱۰ میلیارد تومان</option><option>بیشتر از ۱۰ میلیارد تومان</option><option>نیازمند ارزیابی / توافقی</option></select></label>
           </div>
           <label>محدوده و توضیحات<textarea name="details" rows="4" placeholder="مثلاً محدوده موردنظر، متراژ، ویژگی‌های ملک یا زمان مناسب تماس"></textarea></label>
-          <label>روش دلخواه برای ارسال درخواست
-            <select name="channel" id="inquiry-channel" required>
-              <option value="whatsapp">واتساپ</option>
-              <option value="telegram">تلگرام</option>
-              <option value="eitaa">ایتا</option>
-              <option value="bale">بله</option>
-              <option value="rubika">روبیکا</option>
-              <option value="instagram">اینستاگرام</option>
-              <option value="email">ایمیل</option>
-            </select>
-          </label>
-          <button class="button button-gold submit-button" type="submit">آماده‌سازی و ارسال درخواست <span>←</span></button>
-          <p class="form-privacy">با زدن دکمه، حساب مستقیم املاک در برنامه انتخاب‌شده باز می‌شود؛ در برنامه‌هایی که پیش‌نویس پیام مستقیم را پشتیبانی نمی‌کنند، متن درخواست کپی می‌شود تا در کادر پیام جای‌گذاری و ارسال کنید.</p>
+          <button class="button button-gold submit-button" type="submit">ارسال درخواست <span>←</span></button>
+          <p class="form-privacy">درخواست شما پس از ارسال، به ایمیل مشاور املاک هیرکان سرا فرستاده می‌شود. لطفاً شماره تماس را درست وارد کنید.</p>
           <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -279,79 +268,40 @@
       if (!form) return;
       const status = document.getElementById('form-status');
       const button = form.querySelector('button[type="submit"]');
-      const messageFor = (data) => [
-        'درخواست از وب‌سایت هیرکان سرا',
-        'نام: ' + (data.get('name') || ''),
-        'شماره تماس: ' + (data.get('phone') || ''),
-        'نوع درخواست: ' + (data.get('type') || ''),
-        'بودجه: ' + (data.get('budget') || ''),
-        'توضیحات: ' + (data.get('details') || 'ذکر نشده')
-      ].join('\n');
 
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
         if (!form.reportValidity()) return;
+
+        const originalButton = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = 'در حال ارسال…';
+        status.textContent = 'درخواست در حال ارسال به ایمیل هیرکان سرا است.';
+
         const data = new FormData(form);
-        const message = messageFor(data);
-        const channel = data.get('channel');
-        const encoded = encodeURIComponent(message);
-        const targets = {
-          whatsapp: 'https://wa.me/989119996780?text=' + encoded,
-          telegram: 'https://t.me/hirkansara911',
-          eitaa: 'https://eitaa.com/09119996780',
-          bale: 'https://ble.ir/09119996780',
-          rubika: 'https://rubika.ir/09119996780',
-          instagram: 'https://ig.me/m/hirkansararealestate',
-          email: 'mailto:hirkansararealestate@gmail.com?subject=' + encodeURIComponent('درخواست از وب‌سایت هیرکان سرا') + '&body=' + encoded
-        };
+        data.append('_subject', 'درخواست جدید از وب‌سایت هیرکان سرا');
+        data.append('_captcha', 'false');
+        data.append('_template', 'table');
 
-        if (channel === 'email') {
-          status.textContent = 'ایمیل با متن درخواست آماده می‌شود؛ در برنامه ایمیل فقط «ارسال» را بزنید.';
-          window.location.href = targets.email;
-          return;
-        }
-
-        // Open the direct business conversation/profile, not a generic share page.
-        const opened = window.open(targets[channel], '_blank');
-        if (opened) opened.opener = null;
-
-        if (channel === 'whatsapp') {
-          status.textContent = 'گفت‌وگوی واتساپ با متن آماده باز می‌شود؛ بررسی کنید و «ارسال» را بزنید.';
-          return;
-        }
-
-        // Telegram, Eitaa, Bale, Rubika and Instagram do not consistently allow
-        // a website to prefill a message to a specific account. Copy the message
-        // while opening the direct account, then the user only needs to paste/send.
         try {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(message);
-            status.textContent = 'صفحه مستقیم حساب املاک باز شد و متن درخواست کپی شد؛ داخل کادر پیام «جای‌گذاری» و سپس «ارسال» را بزنید.';
-          } else {
-            status.textContent = 'صفحه مستقیم حساب املاک باز شد؛ متن درخواست را از کادر زیر کپی کنید و در پیام جای‌گذاری کنید.';
-            showMessageFallback(message);
+          const response = await fetch('https://formsubmit.co/ajax/hirkansararealestate@gmail.com', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+          const result = await response.json();
+          if (!response.ok || result.success === false) {
+            throw new Error(result.message || 'ارسال انجام نشد');
           }
-        } catch (_) {
-          status.textContent = 'صفحه مستقیم حساب املاک باز شد؛ متن درخواست را از کادر زیر کپی کنید و در پیام جای‌گذاری کنید.';
-          showMessageFallback(message);
+          status.textContent = 'درخواست شما ارسال شد. از تماس شما با هیرکان سرا سپاسگزاریم.';
+          form.reset();
+        } catch (error) {
+          status.textContent = 'ارسال انجام نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید؛ هیچ برنامه پیام‌رسانی لازم نیست.';
+        } finally {
+          button.disabled = false;
+          button.innerHTML = originalButton;
         }
       });
-
-      function showMessageFallback(message) {
-        let box = document.getElementById('inquiry-message-fallback');
-        if (!box) {
-          box = document.createElement('textarea');
-          box.id = 'inquiry-message-fallback';
-          box.readOnly = true;
-          box.rows = 6;
-          box.setAttribute('aria-label', 'متن آماده درخواست برای کپی');
-          box.style.cssText = 'display:block;width:100%;margin-top:12px;padding:12px;border-radius:8px;direction:rtl;';
-          status.insertAdjacentElement('afterend', box);
-        }
-        box.value = message;
-        box.focus();
-        box.select();
-      }
     })();
   </script>
   <!-- GitHub Pages deployment trigger -->
