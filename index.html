@@ -235,6 +235,9 @@
           <a class="map-link" href="https://maps.app.goo.gl/7DTRgy2FGSjVE621A?g_st=ac" target="_blank" rel="noopener">باز کردن موقعیت دفتر و مسیریابی در نقشه ↗</a>
         </div>
         <form class="contact-form" id="inquiry-form">
+  <div aria-hidden="true" style="position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
+    <label>این قسمت را خالی بگذارید<input name="_hirkansara_check" type="text" tabindex="-1" autocomplete="off"></label>
+  </div>
           <p class="form-kicker">فرم درخواست مشاوره</p>
           <h3>درخواست شما</h3>
           <div class="form-row">
@@ -307,10 +310,27 @@
       if (!form) return;
       const status = document.getElementById('form-status');
       const button = form.querySelector('button[type="submit"]');
+      const startedAt = Date.now();
+      let lastSubmitAt = 0;
 
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
         if (!form.reportValidity()) return;
+
+        // Honeypot and minimum completion time are lightweight anti-spam signals.
+        if (form.elements['_hirkansara_check'].value.trim() !== '') {
+          status.textContent = 'ارسال درخواست ممکن نشد.';
+          return;
+        }
+        if (Date.now() - startedAt < 2500) {
+          status.textContent = 'لطفاً اطلاعات را بررسی کنید و چند لحظه بعد دوباره ارسال کنید.';
+          return;
+        }
+        if (Date.now() - lastSubmitAt < 15000) {
+          status.textContent = 'برای جلوگیری از ارسال تکراری، کمی صبر کنید و دوباره تلاش کنید.';
+          return;
+        }
+        lastSubmitAt = Date.now();
 
         const originalButton = button.innerHTML;
         button.disabled = true;
@@ -336,7 +356,6 @@
         phoneInput.value = phone;
         const data = new FormData(form);
         data.append('_subject', 'درخواست جدید از وب‌سایت هیرکان سرا');
-        data.append('_captcha', 'false');
         data.append('_template', 'table');
 
         try {
