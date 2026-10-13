@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hirkansara.github.io/sitemap.xml
