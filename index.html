@@ -260,439 +260,86 @@
             <label>شماره تماس<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9۰-۹٠-٩+() -]{8,20}" title="شماره تماس را با ارقام فارسی یا انگلیسی وارد کنید" placeholder="شماره همراه"></label>
           </div>
           <div class="form-row">
-            <label>نوع درخواست<select name="type" required>
-  <option value="">انتخاب نوع درخواست از فهرست دسته‌بندی‌شده</option>
-  <optgroup label="۱. آپارتمان">
-    <option>خرید آپارتمان</option>
-    <option>فروش آپارتمان</option>
-    <option>رهن کامل آپارتمان</option>
-    <option>رهن و اجاره آپارتمان</option>
-    <option>اجاره آپارتمان</option>
-    <option>پیش‌خرید آپارتمان</option>
-    <option>پیش‌فروش آپارتمان</option>
-    <option>خرید آپارتمان نوساز</option>
-    <option>فروش آپارتمان نوساز</option>
-    <option>خرید آپارتمان کلیدنخورده</option>
-    <option>فروش آپارتمان کلیدنخورده</option>
-    <option>خرید آپارتمان مبله</option>
-    <option>فروش آپارتمان مبله</option>
-    <option>اجاره آپارتمان مبله</option>
-    <option>خرید آپارتمان لوکس</option>
-    <option>فروش آپارتمان لوکس</option>
-    <option>خرید آپارتمان دوبلکس</option>
-    <option>فروش آپارتمان دوبلکس</option>
-    <option>خرید آپارتمان تریبلکس</option>
-    <option>فروش آپارتمان تریبلکس</option>
-    <option>خرید پنت‌هاوس</option>
-    <option>فروش پنت‌هاوس</option>
-    <option>خرید آپارتمان در حال ساخت</option>
-    <option>فروش آپارتمان در حال ساخت</option>
-    <option>خرید آپارتمان نیمه‌کاره</option>
-    <option>فروش آپارتمان نیمه‌کاره</option>
-    <option>خرید آپارتمان آماده تحویل</option>
-    <option>فروش آپارتمان آماده تحویل</option>
-    <option>مشارکت در ساخت آپارتمان</option>
-  </optgroup>
-  <optgroup label="۲. سوئیت">
-    <option>خرید سوئیت</option>
-    <option>فروش سوئیت</option>
-    <option>رهن کامل سوئیت</option>
-    <option>رهن و اجاره سوئیت</option>
-    <option>اجاره سوئیت</option>
-    <option>اجاره روزانه سوئیت</option>
-    <option>اجاره هفتگی سوئیت</option>
-    <option>اجاره ماهانه سوئیت</option>
-    <option>خرید سوئیت مبله</option>
-    <option>فروش سوئیت مبله</option>
-    <option>اجاره سوئیت مبله</option>
-    <option>خرید سوئیت نوساز</option>
-    <option>فروش سوئیت نوساز</option>
-    <option>خرید سوئیت ساحلی</option>
-    <option>فروش سوئیت ساحلی</option>
-  </optgroup>
-  <optgroup label="۳. خانه و ساختمان مسکونی">
-    <option>خرید خانه</option>
-    <option>فروش خانه</option>
-    <option>رهن کامل خانه</option>
-    <option>رهن و اجاره خانه</option>
-    <option>اجاره خانه</option>
-    <option>خرید خانه ویلایی</option>
-    <option>فروش خانه ویلایی</option>
-    <option>خرید خانه حیاط‌دار</option>
-    <option>فروش خانه حیاط‌دار</option>
-    <option>خرید خانه دوبلکس</option>
-    <option>فروش خانه دوبلکس</option>
-    <option>خرید خانه تریبلکس</option>
-    <option>فروش خانه تریبلکس</option>
-    <option>خرید خانه کلنگی</option>
-    <option>فروش خانه کلنگی</option>
-    <option>خرید خانه قدیمی</option>
-    <option>فروش خانه قدیمی</option>
-    <option>خرید خانه قابل بازسازی</option>
-    <option>فروش خانه قابل بازسازی</option>
-    <option>خرید ساختمان مسکونی</option>
-    <option>فروش ساختمان مسکونی</option>
-    <option>خرید ساختمان چندواحدی</option>
-    <option>فروش ساختمان چندواحدی</option>
-    <option>خرید ساختمان نوساز</option>
-    <option>فروش ساختمان نوساز</option>
-    <option>خرید ساختمان نیمه‌کاره</option>
-    <option>فروش ساختمان نیمه‌کاره</option>
-    <option>خرید ملک مسکونی مبله</option>
-    <option>فروش ملک مسکونی مبله</option>
-    <option>اجاره ملک مسکونی مبله</option>
-  </optgroup>
-  <optgroup label="۴. ویلا">
-    <option>خرید ویلای مستقل</option>
-    <option>فروش ویلای مستقل</option>
-    <option>خرید ویلای شهرکی</option>
-    <option>فروش ویلای شهرکی</option>
-    <option>خرید ویلای ساحلی</option>
-    <option>فروش ویلای ساحلی</option>
-    <option>خرید ویلای جنگلی</option>
-    <option>فروش ویلای جنگلی</option>
-    <option>خرید ویلای استخردار</option>
-    <option>فروش ویلای استخردار</option>
-    <option>خرید ویلای دوبلکس</option>
-    <option>فروش ویلای دوبلکس</option>
-    <option>خرید ویلای تریبلکس</option>
-    <option>فروش ویلای تریبلکس</option>
-    <option>خرید ویلای لوکس</option>
-    <option>فروش ویلای لوکس</option>
-    <option>خرید ویلای مدرن</option>
-    <option>فروش ویلای مدرن</option>
-    <option>خرید ویلای کلاسیک</option>
-    <option>فروش ویلای کلاسیک</option>
-    <option>خرید ویلای سنتی</option>
-    <option>فروش ویلای سنتی</option>
-    <option>خرید ویلای مبله</option>
-    <option>فروش ویلای مبله</option>
-    <option>اجاره ویلای مبله</option>
-    <option>رهن و اجاره ویلا</option>
-    <option>اجاره ویلا</option>
-    <option>اجاره روزانه ویلا</option>
-    <option>اجاره هفتگی ویلا</option>
-    <option>اجاره ماهانه ویلا</option>
-    <option>خرید ویلای نوساز</option>
-    <option>فروش ویلای نوساز</option>
-    <option>خرید ویلای نیمه‌کاره</option>
-    <option>فروش ویلای نیمه‌کاره</option>
-    <option>خرید ویلای آماده تحویل</option>
-    <option>فروش ویلای آماده تحویل</option>
-    <option>پیش‌خرید ویلا</option>
-    <option>پیش‌فروش ویلا</option>
-    <option>مشارکت در ساخت ویلا</option>
-  </optgroup>
-  <optgroup label="۵. باغ و باغ‌ویلا">
-    <option>خرید باغ</option>
-    <option>فروش باغ</option>
-    <option>اجاره باغ</option>
-    <option>خرید باغ‌ویلا</option>
-    <option>فروش باغ‌ویلا</option>
-    <option>رهن و اجاره باغ‌ویلا</option>
-    <option>اجاره باغ‌ویلا</option>
-    <option>خرید باغ‌ویلا استخردار</option>
-    <option>فروش باغ‌ویلا استخردار</option>
-    <option>خرید باغ‌ویلا ساحلی</option>
-    <option>فروش باغ‌ویلا ساحلی</option>
-    <option>خرید باغ‌ویلا جنگلی</option>
-    <option>فروش باغ‌ویلا جنگلی</option>
-    <option>خرید خانه باغ</option>
-    <option>فروش خانه باغ</option>
-    <option>خرید باغ میوه</option>
-    <option>فروش باغ میوه</option>
-    <option>خرید باغ کشاورزی</option>
-    <option>فروش باغ کشاورزی</option>
-    <option>اجاره باغ کشاورزی</option>
-  </optgroup>
-  <optgroup label="۶. زمین و مستغلات">
-    <option>خرید زمین مسکونی</option>
-    <option>فروش زمین مسکونی</option>
-    <option>خرید زمین مناسب ساخت ویلا</option>
-    <option>فروش زمین مناسب ساخت ویلا</option>
-    <option>خرید زمین مناسب ساخت آپارتمان</option>
-    <option>فروش زمین مناسب ساخت آپارتمان</option>
-    <option>خرید زمین دارای مجوز ساخت</option>
-    <option>فروش زمین دارای مجوز ساخت</option>
-    <option>خرید زمین دارای سند</option>
-    <option>فروش زمین دارای سند</option>
-    <option>خرید زمین تفکیک‌شده</option>
-    <option>فروش زمین تفکیک‌شده</option>
-    <option>خرید زمین شهرکی</option>
-    <option>فروش زمین شهرکی</option>
-    <option>خرید زمین خارج از بافت شهری</option>
-    <option>فروش زمین خارج از بافت شهری</option>
-    <option>خرید زمین تجاری</option>
-    <option>فروش زمین تجاری</option>
-    <option>خرید زمین اداری</option>
-    <option>فروش زمین اداری</option>
-    <option>خرید زمین صنعتی</option>
-    <option>فروش زمین صنعتی</option>
-    <option>خرید زمین مناسب احداث کارخانه</option>
-    <option>فروش زمین مناسب احداث کارخانه</option>
-    <option>خرید زمین مناسب ساخت مجتمع تجاری</option>
-    <option>فروش زمین مناسب ساخت مجتمع تجاری</option>
-    <option>خرید زمین کشاورزی</option>
-    <option>فروش زمین کشاورزی</option>
-    <option>خرید زمین زراعی</option>
-    <option>فروش زمین زراعی</option>
-    <option>خرید زمین باغی</option>
-    <option>فروش زمین باغی</option>
-    <option>خرید زمین مناسب کشاورزی</option>
-    <option>فروش زمین مناسب کشاورزی</option>
-    <option>خرید زمین ساحلی</option>
-    <option>فروش زمین ساحلی</option>
-    <option>خرید زمین جنگلی</option>
-    <option>فروش زمین جنگلی</option>
-    <option>خرید زمین مشاع</option>
-    <option>فروش زمین مشاع</option>
-    <option>خرید زمین مناسب سرمایه‌گذاری</option>
-    <option>فروش زمین مناسب سرمایه‌گذاری</option>
-    <option>خرید زمین مناسب دیوارکشی</option>
-    <option>فروش زمین مناسب دیوارکشی</option>
-  </optgroup>
-  <optgroup label="۷. املاک تجاری">
-    <option>خرید مغازه</option>
-    <option>فروش مغازه</option>
-    <option>رهن کامل مغازه</option>
-    <option>رهن و اجاره مغازه</option>
-    <option>اجاره مغازه</option>
-    <option>خرید واحد تجاری</option>
-    <option>فروش واحد تجاری</option>
-    <option>خرید مجتمع تجاری</option>
-    <option>فروش مجتمع تجاری</option>
-    <option>خرید پاساژ</option>
-    <option>فروش پاساژ</option>
-    <option>خرید واحد تجاری نوساز</option>
-    <option>فروش واحد تجاری نوساز</option>
-    <option>پیش‌خرید واحد تجاری</option>
-    <option>پیش‌فروش واحد تجاری</option>
-    <option>مشارکت در ساخت ساختمان تجاری</option>
-    <option>خرید رستوران</option>
-    <option>فروش رستوران</option>
-    <option>اجاره رستوران</option>
-    <option>خرید کافه</option>
-    <option>فروش کافه</option>
-    <option>اجاره کافه</option>
-    <option>خرید تالار پذیرایی</option>
-    <option>فروش تالار پذیرایی</option>
-    <option>خرید پارکینگ تجاری</option>
-    <option>فروش پارکینگ تجاری</option>
-  </optgroup>
-  <optgroup label="۸. املاک اداری و درمانی">
-    <option>خرید دفتر کار</option>
-    <option>فروش دفتر کار</option>
-    <option>رهن کامل دفتر کار</option>
-    <option>رهن و اجاره دفتر کار</option>
-    <option>اجاره دفتر کار</option>
-    <option>خرید ساختمان اداری</option>
-    <option>فروش ساختمان اداری</option>
-    <option>خرید واحد اداری</option>
-    <option>فروش واحد اداری</option>
-    <option>پیش‌خرید واحد اداری</option>
-    <option>پیش‌فروش واحد اداری</option>
-    <option>مشارکت در ساخت ساختمان اداری</option>
-    <option>خرید مطب</option>
-    <option>فروش مطب</option>
-    <option>اجاره مطب</option>
-    <option>خرید کلینیک</option>
-    <option>فروش کلینیک</option>
-    <option>اجاره کلینیک</option>
-  </optgroup>
-  <optgroup label="۹. املاک صنعتی و تولیدی">
-    <option>خرید انبار</option>
-    <option>فروش انبار</option>
-    <option>اجاره انبار</option>
-    <option>خرید سوله</option>
-    <option>فروش سوله</option>
-    <option>اجاره سوله</option>
-    <option>خرید کارخانه</option>
-    <option>فروش کارخانه</option>
-    <option>اجاره کارخانه</option>
-    <option>خرید کارگاه</option>
-    <option>فروش کارگاه</option>
-    <option>اجاره کارگاه</option>
-    <option>خرید ملک صنعتی</option>
-    <option>فروش ملک صنعتی</option>
-    <option>اجاره ملک صنعتی</option>
-    <option>خرید زمین صنعتی</option>
-    <option>فروش زمین صنعتی</option>
-  </optgroup>
-  <optgroup label="۱۰. املاک اقامتی و گردشگری">
-    <option>خرید هتل</option>
-    <option>فروش هتل</option>
-    <option>خرید هتل‌آپارتمان</option>
-    <option>فروش هتل‌آپارتمان</option>
-    <option>خرید اقامتگاه بوم‌گردی</option>
-    <option>فروش اقامتگاه بوم‌گردی</option>
-    <option>خرید مهمان‌پذیر</option>
-    <option>فروش مهمان‌پذیر</option>
-    <option>خرید مجتمع اقامتی</option>
-    <option>فروش مجتمع اقامتی</option>
-    <option>خرید خانه مسافر</option>
-    <option>فروش خانه مسافر</option>
-    <option>خرید مجموعه گردشگری</option>
-    <option>فروش مجموعه گردشگری</option>
-    <option>اجاره هتل‌آپارتمان</option>
-    <option>اجاره اقامتگاه بوم‌گردی</option>
-  </optgroup>
-  <optgroup label="۱۱. پیش‌فروش، مشارکت و سرمایه‌گذاری">
-    <option>پیش‌خرید آپارتمان</option>
-    <option>پیش‌فروش آپارتمان</option>
-    <option>پیش‌خرید ویلا</option>
-    <option>پیش‌فروش ویلا</option>
-    <option>پیش‌فروش خانه</option>
-    <option>پیش‌خرید واحد تجاری</option>
-    <option>پیش‌فروش واحد تجاری</option>
-    <option>پیش‌خرید واحد اداری</option>
-    <option>پیش‌فروش واحد اداری</option>
-    <option>پیش‌فروش پروژه ساختمانی</option>
-    <option>مشارکت در ساخت آپارتمان</option>
-    <option>مشارکت در ساخت ویلا</option>
-    <option>مشارکت در ساخت ساختمان تجاری</option>
-    <option>مشارکت در ساخت ساختمان اداری</option>
-    <option>مشارکت در ساخت ملک مسکونی</option>
-    <option>مشارکت در ساخت ملک تجاری</option>
-    <option>سرمایه‌گذاری در پروژه‌های ساختمانی</option>
-    <option>خرید پروژه ساختمانی</option>
-    <option>فروش پروژه ساختمانی</option>
-    <option>خرید امتیاز پروژه ساختمانی</option>
-    <option>فروش امتیاز پروژه ساختمانی</option>
-    <option>خرید ملک برای سرمایه‌گذاری</option>
-    <option>فروش ملک سرمایه‌گذاری</option>
-    <option>سرمایه‌گذاری در زمین</option>
-    <option>سرمایه‌گذاری در ویلا</option>
-    <option>سرمایه‌گذاری در آپارتمان</option>
-  </optgroup>
-  <optgroup label="۱۲. خرید و فروش املاک بر اساس وضعیت">
-    <option>خرید ملک نوساز</option>
-    <option>فروش ملک نوساز</option>
-    <option>خرید ملک کلیدنخورده</option>
-    <option>فروش ملک کلیدنخورده</option>
-    <option>خرید ملک چند سال ساخت</option>
-    <option>فروش ملک چند سال ساخت</option>
-    <option>خرید ملک بازسازی‌شده</option>
-    <option>فروش ملک بازسازی‌شده</option>
-    <option>خرید ملک نیازمند بازسازی</option>
-    <option>فروش ملک نیازمند بازسازی</option>
-    <option>خرید ملک نیمه‌کاره</option>
-    <option>فروش ملک نیمه‌کاره</option>
-    <option>خرید ملک در حال ساخت</option>
-    <option>فروش ملک در حال ساخت</option>
-    <option>خرید ملک آماده تحویل</option>
-    <option>فروش ملک آماده تحویل</option>
-    <option>خرید ملک مبله</option>
-    <option>فروش ملک مبله</option>
-    <option>اجاره ملک مبله</option>
-    <option>خرید ملک تخلیه</option>
-    <option>فروش ملک تخلیه</option>
-    <option>خرید ملک دارای مستأجر</option>
-    <option>فروش ملک دارای مستأجر</option>
-    <option>خرید ملک لوکس</option>
-    <option>فروش ملک لوکس</option>
-    <option>خرید ملک ساحلی</option>
-    <option>فروش ملک ساحلی</option>
-    <option>خرید ملک جنگلی</option>
-    <option>فروش ملک جنگلی</option>
-    <option>خرید ملک دارای سند رسمی</option>
-    <option>فروش ملک دارای سند رسمی</option>
-  </optgroup>
-  <optgroup label="۱۳. معاوضه و تهاتر">
-    <option>معاوضه ملک با ملک</option>
-    <option>معاوضه آپارتمان با خانه</option>
-    <option>معاوضه آپارتمان با زمین</option>
-    <option>معاوضه ویلا با آپارتمان</option>
-    <option>معاوضه ویلا با زمین</option>
-    <option>معاوضه خانه با زمین</option>
-    <option>معاوضه ملک با خودرو</option>
-    <option>معاوضه ملک با ملک تجاری</option>
-    <option>معاوضه زمین با آپارتمان</option>
-    <option>تهاتر ملک</option>
-    <option>تهاتر زمین</option>
-    <option>تهاتر آپارتمان</option>
-    <option>تهاتر ویلا</option>
-    <option>تهاتر ملک تجاری</option>
-  </optgroup>
-  <optgroup label="۱۴. خدمات پروانه ساختمانی و مجوزهای ساخت">
-    <option>دریافت پروانه ساختمانی</option>
-    <option>دریافت پروانه ساخت</option>
-    <option>اخذ جواز ساخت ویلا</option>
-    <option>اخذ جواز ساخت آپارتمان</option>
-    <option>اخذ جواز ساخت ساختمان مسکونی</option>
-    <option>اخذ جواز ساخت ساختمان تجاری</option>
-    <option>اخذ جواز ساخت ساختمان اداری</option>
-    <option>اخذ مجوز ساخت‌وساز زمین</option>
-    <option>اخذ مجوز ساخت کارخانه</option>
-    <option>اخذ مجوز ساخت کارگاه</option>
-    <option>تمدید پروانه ساختمانی</option>
-    <option>اصلاح پروانه ساختمانی</option>
-    <option>تغییر نقشه پروانه ساختمانی</option>
-    <option>پیگیری صدور پروانه ساختمانی</option>
-    <option>اخذ پایان کار ساختمان</option>
-    <option>دریافت گواهی پایان کار</option>
-    <option>دریافت عدم خلافی ساختمان</option>
-    <option>دریافت شناسنامه فنی و ملکی ساختمان</option>
-    <option>پیگیری پرونده ساختمانی</option>
-    <option>رفع خلافی ساختمان</option>
-    <option>پیگیری تخلفات ساختمانی</option>
-    <option>مشاوره مدارک ساختمانی</option>
-    <option>پیگیری پرونده شهرداری</option>
-    <option>مشاوره امور شهرداری</option>
-    <option>استعلام وضعیت ملک</option>
-    <option>استعلام کاربری زمین</option>
-    <option>درخواست تغییر کاربری زمین</option>
-    <option>درخواست تغییر کاربری ساختمان</option>
-    <option>دریافت مجوز دیوارکشی زمین</option>
-    <option>دریافت مجوز تخریب ساختمان</option>
-    <option>دریافت مجوز تعمیرات ساختمان</option>
-    <option>دریافت مجوز بازسازی ساختمان</option>
-    <option>دریافت مجوز اضافه‌طبقه</option>
-    <option>پیگیری عوارض ساختمانی</option>
-    <option>پیگیری عوارض شهرداری</option>
-    <option>تفکیک زمین</option>
-    <option>تفکیک آپارتمان</option>
-    <option>تفکیک ساختمان</option>
-    <option>تجمیع املاک</option>
-    <option>تجمیع پلاک‌های ثبتی</option>
-    <option>پیگیری امور ثبتی ملک</option>
-    <option>دریافت سند رسمی ملک</option>
-    <option>دریافت سند تک‌برگ</option>
-    <option>مشاوره وضعیت سند</option>
-    <option>پیگیری اصلاح سند</option>
-    <option>مشاوره املاک مشاع</option>
-  </optgroup>
-  <optgroup label="۱۵. خدمات مشاوره املاک">
-    <option>مشاوره خرید ملک</option>
-    <option>مشاوره فروش ملک</option>
-    <option>مشاوره رهن و اجاره</option>
-    <option>مشاوره خرید آپارتمان</option>
-    <option>مشاوره خرید ویلا</option>
-    <option>مشاوره خرید زمین</option>
-    <option>مشاوره خرید ملک تجاری</option>
-    <option>مشاوره خرید ملک اداری</option>
-    <option>مشاوره خرید ملک صنعتی</option>
-    <option>مشاوره سرمایه‌گذاری ملکی</option>
-    <option>مشاوره مشارکت در ساخت</option>
-    <option>مشاوره پیش‌خرید ملک</option>
-    <option>کارشناسی قیمت ملک</option>
-    <option>کارشناسی قیمت آپارتمان</option>
-    <option>کارشناسی قیمت ویلا</option>
-    <option>کارشناسی قیمت زمین</option>
-    <option>ارزش‌گذاری ملک تجاری</option>
-    <option>ارزش‌گذاری ملک صنعتی</option>
-    <option>مشاوره حقوقی معاملات ملکی</option>
-    <option>مشاوره خرید زمین برای ساخت ویلا</option>
-    <option>مشاوره خرید ملک برای سرمایه‌گذاری</option>
-    <option>معرفی پروژه‌های ساختمانی</option>
-    <option>معرفی فرصت‌های سرمایه‌گذاری</option>
-    <option>هماهنگی بازدید از ملک</option>
-    <option>ثبت درخواست خرید ملک</option>
-    <option>ثبت درخواست فروش ملک</option>
-    <option>ثبت درخواست رهن و اجاره</option>
-    <option>ثبت درخواست مشارکت در ساخت</option>
-    <option>ثبت درخواست دریافت پروانه ساختمانی</option>
-  </optgroup>
-</select></label>
+            <label>نوع درخواست
+              <select name="type" required>
+                <option value="">دسته‌بندی، نوع معامله و مورد دلخواه را انتخاب کنید</option>
+                <optgroup label="آپارتمان | خرید">
+                  <option>خرید آپارتمان معمولی</option><option>خرید آپارتمان دوبلکس یا تریبلکس</option><option>خرید پنت‌هاوس</option>
+                </optgroup>
+                <optgroup label="آپارتمان | فروش">
+                  <option>فروش آپارتمان معمولی</option><option>فروش آپارتمان دوبلکس یا تریبلکس</option><option>فروش پنت‌هاوس</option>
+                </optgroup>
+                <optgroup label="سوئیت | خرید">
+                  <option>خرید سوئیت</option><option>خرید سوئیت مبله</option>
+                </optgroup>
+                <optgroup label="سوئیت | فروش">
+                  <option>فروش سوئیت</option><option>فروش سوئیت مبله</option>
+                </optgroup>
+                <optgroup label="خانه | خرید">
+                  <option>خرید خانه مستقل یا حیاط‌دار</option><option>خرید خانه دوبلکس</option><option>خرید خانه کلنگی</option><option>خرید ساختمان مسکونی چندواحدی</option>
+                </optgroup>
+                <optgroup label="خانه | فروش">
+                  <option>فروش خانه مستقل یا حیاط‌دار</option><option>فروش خانه دوبلکس</option><option>فروش خانه کلنگی</option><option>فروش ساختمان مسکونی چندواحدی</option>
+                </optgroup>
+                <optgroup label="ویلا | خرید">
+                  <option>خرید ویلای مستقل</option><option>خرید ویلای شهرکی</option><option>خرید ویلای ساحلی یا جنگلی</option><option>خرید ویلای استخردار</option>
+                </optgroup>
+                <optgroup label="ویلا | فروش">
+                  <option>فروش ویلای مستقل</option><option>فروش ویلای شهرکی</option><option>فروش ویلای ساحلی یا جنگلی</option><option>فروش ویلای استخردار</option>
+                </optgroup>
+                <optgroup label="باغ و باغ‌ویلا | خرید">
+                  <option>خرید باغ</option><option>خرید باغ‌ویلا</option><option>خرید باغ میوه یا کشاورزی</option>
+                </optgroup>
+                <optgroup label="باغ و باغ‌ویلا | فروش">
+                  <option>فروش باغ</option><option>فروش باغ‌ویلا</option><option>فروش باغ میوه یا کشاورزی</option>
+                </optgroup>
+                <optgroup label="زمین | خرید">
+                  <option>خرید زمین مسکونی</option><option>خرید زمین شهرکی</option><option>خرید زمین ساحلی یا جنگلی</option><option>خرید زمین کشاورزی یا باغی</option><option>خرید زمین تجاری یا صنعتی</option>
+                </optgroup>
+                <optgroup label="زمین | فروش">
+                  <option>فروش زمین مسکونی</option><option>فروش زمین شهرکی</option><option>فروش زمین ساحلی یا جنگلی</option><option>فروش زمین کشاورزی یا باغی</option><option>فروش زمین تجاری یا صنعتی</option>
+                </optgroup>
+                <optgroup label="املاک تجاری | خرید">
+                  <option>خرید مغازه یا واحد تجاری</option><option>خرید مجتمع تجاری یا پاساژ</option><option>خرید رستوران یا کافه</option>
+                </optgroup>
+                <optgroup label="املاک تجاری | فروش">
+                  <option>فروش مغازه یا واحد تجاری</option><option>فروش مجتمع تجاری یا پاساژ</option><option>فروش رستوران یا کافه</option>
+                </optgroup>
+                <optgroup label="املاک اداری و درمانی | خرید">
+                  <option>خرید دفتر یا واحد اداری</option><option>خرید مطب یا کلینیک</option><option>خرید ساختمان اداری</option>
+                </optgroup>
+                <optgroup label="املاک اداری و درمانی | فروش">
+                  <option>فروش دفتر یا واحد اداری</option><option>فروش مطب یا کلینیک</option><option>فروش ساختمان اداری</option>
+                </optgroup>
+                <optgroup label="املاک صنعتی | خرید">
+                  <option>خرید انبار یا سوله</option><option>خرید کارخانه یا کارگاه</option><option>خرید زمین صنعتی</option>
+                </optgroup>
+                <optgroup label="املاک صنعتی | فروش">
+                  <option>فروش انبار یا سوله</option><option>فروش کارخانه یا کارگاه</option><option>فروش زمین صنعتی</option>
+                </optgroup>
+                <optgroup label="املاک اقامتی و گردشگری | خرید">
+                  <option>خرید هتل یا هتل‌آپارتمان</option><option>خرید اقامتگاه بوم‌گردی</option><option>خرید مهمان‌پذیر یا مجتمع اقامتی</option>
+                </optgroup>
+                <optgroup label="املاک اقامتی و گردشگری | فروش">
+                  <option>فروش هتل یا هتل‌آپارتمان</option><option>فروش اقامتگاه بوم‌گردی</option><option>فروش مهمان‌پذیر یا مجتمع اقامتی</option>
+                </optgroup>
+                <optgroup label="رهن و اجاره">
+                  <option>رهن یا اجاره آپارتمان</option><option>رهن یا اجاره سوئیت</option><option>رهن یا اجاره خانه</option><option>اجاره ویلا</option><option>اجاره باغ‌ویلا یا باغ</option><option>اجاره مغازه یا واحد تجاری</option><option>اجاره دفتر یا واحد اداری</option><option>اجاره انبار یا سوله</option><option>اجاره ملک اقامتی</option>
+                </optgroup>
+                <optgroup label="پیش‌فروش و مشارکت در ساخت">
+                  <option>پیش‌خرید یا پیش‌فروش آپارتمان</option><option>پیش‌خرید یا پیش‌فروش ویلا</option><option>پیش‌خرید یا پیش‌فروش واحد تجاری</option><option>مشارکت در ساخت مسکونی</option><option>مشارکت در ساخت تجاری یا اداری</option>
+                </optgroup>
+                <optgroup label="معاوضه و سرمایه‌گذاری">
+                  <option>معاوضه ملک با ملک</option><option>معاوضه ملک با زمین</option><option>معاوضه ملک با خودرو</option><option>سرمایه‌گذاری در ملک</option><option>خرید ملک برای سرمایه‌گذاری</option>
+                </optgroup>
+                <optgroup label="خدمات ساختمانی، شهرداری و امور ثبتی">
+                  <option>دریافت پروانه ساختمانی</option><option>تمدید یا اصلاح پروانه ساختمانی</option><option>دریافت پایان کار ساختمان</option><option>پیگیری پرونده شهرداری</option><option>استعلام کاربری زمین یا ملک</option><option>تغییر کاربری ملک</option><option>تفکیک یا تجمیع املاک</option><option>دریافت سند رسمی یا سند تک‌برگ</option><option>پیگیری اصلاح سند</option>
+                </optgroup>
+                <optgroup label="مشاوره و کارشناسی">
+                  <option>مشاوره خرید ملک</option><option>مشاوره فروش ملک</option><option>مشاوره رهن و اجاره</option><option>کارشناسی قیمت ملک</option><option>مشاوره سرمایه‌گذاری ملکی</option><option>مشاوره مشارکت در ساخت</option><option>هماهنگی بازدید از ملک</option>
+                </optgroup>
+              </select>
+            </label>
             <label>بودجه تقریبی<select name="budget">
               <option value="">انتخاب بازه بودجه</option>
               <option>کمتر از ۲ میلیارد تومان</option>
