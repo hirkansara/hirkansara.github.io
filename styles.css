@@ -20,3 +20,24 @@
 .messenger-links{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 8px}
 .messenger-links a{display:inline-flex;border:1px solid rgba(228,210,173,.35);color:#e6d7b8;padding:5px 10px;font-size:10px;transition:background .2s,color .2s}
 .messenger-links a:hover{background:var(--gold);color:var(--green)}
+
+
+/* Accessibility and responsive navigation refinements */
+.menu-toggle:focus-visible,
+.primary-nav a:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
+.menu-toggle span { transition: transform .2s ease, opacity .2s ease; }
+@media (max-width: 760px) {
+  .primary-nav { max-height: calc(100vh - 72px); overflow-y: auto; }
+  .menu-toggle { min-width: 44px; min-height: 44px; }
+}
