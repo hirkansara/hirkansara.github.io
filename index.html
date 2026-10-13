@@ -139,10 +139,12 @@
           <div><p class="eyebrow"><span></span> فایل‌های به‌روز املاک</p><h2>آخرین فایل‌ها در <em>تلگرام هیرکان سرا</em></h2></div>
           <p class="section-description">برای مشاهده جزئیات و تصاویر آگهی‌ها، پست‌های کانال را ببینید. پیش از بازدید، موجود بودن ملک و قیمت روز را مستقیماً از مشاور تأیید کنید.</p>
         </div>
-        <div class="telegram-feed-wrap">
-          <iframe class="telegram-feed" src="https://t.me/s/hirkansara?embed=1" title="نمایش پست‌های کانال تلگرام هیرکان سرا" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="telegram-feed-wrap telegram-link-card">
+          <div class="telegram-link-icon" aria-hidden="true">➤</div>
+          <h3>فایل‌های جدید املاک در کانال تلگرام</h3>
+          <p>برای دیدن عکس‌ها، جزئیات و آگهی‌های به‌روز، کانال رسمی هیرکان سرا را مستقیماً باز کنید.</p>
+          <a class="button button-dark" href="https://t.me/hirkansara" target="_blank" rel="noopener noreferrer">مشاهده فایل‌ها در تلگرام ↗</a>
         </div>
-        <p class="telegram-fallback"><a class="button button-dark" href="https://t.me/hirkansara" target="_blank" rel="noopener">مشاهده همه فایل‌ها در تلگرام ↗</a></p>
       </div>
     </section>
 
@@ -265,7 +267,11 @@
   <script src="script.js"></script>
   <style>
     .telegram-feed-wrap { max-width: 760px; margin: 0 auto; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
-    .telegram-feed { display: block; width: 100%; height: 620px; border: 0; }
+    .telegram-link-card { padding: clamp(26px,5vw,52px); text-align:center; }
+    .telegram-link-card h3 { margin: 12px 0 8px; }
+    .telegram-link-card p { max-width: 560px; margin: 0 auto 22px; }
+    .telegram-link-icon { display:grid; place-items:center; margin:auto; width:58px; height:58px; border-radius:50%; background:var(--green); color:#fff; font-size:26px; }
+
     .telegram-fallback { margin: 18px 0 0; text-align: center; }
     .map-link { display: inline-flex; align-items: center; margin-top: 12px; }
     .phone-number { direction:ltr; unicode-bidi:isolate; display:inline-block; white-space:nowrap; }
@@ -287,7 +293,7 @@
       .topbar-instagram svg { width:23px; height:23px; }
       .quick-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
-    @media(max-width:420px) { .telegram-feed { height: 520px; } .topbar-contacts { gap:5px; } .topbar-person { font-size:.73rem; } .phone-number { font-size:.95em; } }
+    @media(max-width:420px) { .topbar-contacts { gap:5px; } .topbar-person { font-size:.73rem; } .phone-number { font-size:.95em; } }
     .advisors-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
     .advisor-card { overflow:hidden; border:1px solid rgba(18,56,47,.14); border-radius:16px; background:#fff; }
     .advisor-info { padding:22px; }
