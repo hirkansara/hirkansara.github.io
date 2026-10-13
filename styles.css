@@ -47,3 +47,32 @@ textarea:focus-visible {
 .hero-image { background-position: center 42%; }
 .about-photo { background-position: center 42%; }
 @media (max-width:760px) { .hero-image { background-position: 52% center; } .about-photo { min-height: 300px; } }
+
+
+/* Consistent colors across mobile browsers and device appearance settings */
+:root {
+  color-scheme: light;
+  --green: #12382f;
+  --green-2: #1b4b3e;
+  --green-3: #2d6250;
+  --gold: #c6a56a;
+  --gold-light: #e4d2ad;
+  --cream: #f7f5ef;
+  --paper: #fffefa;
+  --ink: #1e2925;
+}
+html, body { background-color: #fffefa; color: #1e2925; }
+.site-header { background-color: #fffefa; }
+.button-gold, .button-gold:visited { background-color: #c6a56a; color: #172c24; }
+.button-gold:hover, .button-gold:focus-visible { background-color: #e4d2ad; color: #172c24; }
+.button-dark, .button-dark:visited { background-color: #12382f; color: #ffffff; }
+.button-dark:hover, .button-dark:focus-visible { background-color: #2d6250; color: #ffffff; }
+.nav-cta, .nav-cta:visited { background-color: #12382f; color: #ffffff; }
+.nav-cta:hover, .nav-cta:focus-visible { background-color: #2d6250; color: #ffffff; }
+.floating-whatsapp, .floating-whatsapp:visited { background-color: #12382f; color: #ffffff; }
+.floating-whatsapp:hover, .floating-whatsapp:focus-visible { background-color: #2d6250; color: #ffffff; }
+button, input, textarea, select { color-scheme: light; }
+@media (hover: none) {
+  .button-gold:hover { background-color: #c6a56a; }
+  .button-dark:hover, .nav-cta:hover, .floating-whatsapp:hover { background-color: #12382f; }
+}
