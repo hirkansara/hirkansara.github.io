@@ -330,13 +330,6 @@
           status.textContent = 'برای جلوگیری از ارسال تکراری، کمی صبر کنید و دوباره تلاش کنید.';
           return;
         }
-        lastSubmitAt = Date.now();
-
-        const originalButton = button.innerHTML;
-        button.disabled = true;
-        button.innerHTML = 'در حال ارسال…';
-        status.textContent = 'درخواست در حال ارسال به ایمیل هیرکان سرا است.';
-
         const phoneInput = form.querySelector('[name="phone"]');
         const faDigits = '۰۱۲۳۴۵۶۷۸۹';
         const arDigits = '٠١٢٣٤٥٦٧٨٩';
@@ -354,6 +347,12 @@
           return;
         }
         phoneInput.value = phone;
+        lastSubmitAt = Date.now();
+
+        const originalButton = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = 'در حال ارسال…';
+        status.textContent = 'درخواست در حال ارسال به ایمیل هیرکان سرا است.';
         const data = new FormData(form);
         data.append('_subject', 'درخواست جدید از وب‌سایت هیرکان سرا');
         data.append('_template', 'table');
